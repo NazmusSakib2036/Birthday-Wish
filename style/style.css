@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(90deg, red, yellow, blue, green);
+    animation: bgChange 5s infinite alternate;
+    overflow: hidden;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+@keyframes bgChange {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 100%;
+    }
+}
+
+h1 {
+    margin-top: 4rem;
+    font-size: 3vw;
+    color: white;
+    text-shadow: 4px 4px 10px black;
+    animation: dance 1s infinite alternate;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(5deg) scale(1.2);
+    }
+}
+
+/* Button */
+#crazyBtn {
+    padding: 2vw 4vw;
+    font-size: 2vw;
+    border: none;
+    cursor: pointer;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    border-radius: 3rem;
+    position: relative;
+    animation: bounce 1s infinite;
+    transition: background .5s ease, transform .4s ease, color .4s ease;
+
+
+    &:hover {
+        background: red;
+        color: white;
+        animation: none;
+    }
+
+    &:focus {
+        box-shadow: 0 .2rem 0 .1rem black;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Surprise Images */
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    width: 80vw;
+    max-width: 1200px;
+    margin-top: 5vh;
+    gap: 5vw;
+}
+
+.surpriseImage {
+    display: none;
+    width: 30vw;
+    max-width: 250px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Falling Emojis */
+.emoji {
+    font-size: 4vw;
+    position: absolute;
+    animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .image-container {
+        grid-template-columns: 1fr;
+        gap: 2vh;
+    }
+
+    .surpriseImage {
+        width: 50vw;
+    }
+
+    #crazyBtn {
+        font-size: 4vw;
+        padding: 3vw 6vw;
+        margin-top: 2rem;
+    }
+}
