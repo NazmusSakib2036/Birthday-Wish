@@ -62,7 +62,6 @@ h1 {
 
 
     &:hover {
-        background: red;
         color: white;
         animation: none;
     }
